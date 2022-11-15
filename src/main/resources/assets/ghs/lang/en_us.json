@@ -1,0 +1,13 @@
+{
+  "block.ghs.fuel_burning_generator": "Fuel Burning Generator",
+  "itemGroup.ghs": "Space Conquest",
+  "block.ghs.tungsten_ore": "Tungsten Ore",
+  "block.ghs.titanium_ore": "Titanium Ore",
+  "block.ghs.tin_ore": "Tin Ore",
+  "item.ghs.raw_tungsten": "Raw Tungsten",
+  "item.ghs.raw_titanium": "Raw Titanium",
+  "item.ghs.raw_tin": "Raw Tin",
+  "item.ghs.tungsten_ingot": "Tungsten Ingot",
+  "item.ghs.titanium_ingot": "Titanium Ingot",
+  "item.ghs.tin_ingot": "Tin Ingot"
+}

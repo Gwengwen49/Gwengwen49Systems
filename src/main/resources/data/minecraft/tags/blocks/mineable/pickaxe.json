@@ -1,0 +1,23 @@
+{
+  "values": [
+    "ghs:fuel_burning_generator",
+
+    "ghs:tungsten_ore",
+    "ghs:titanium_ore",
+    "ghs:tin_ore",
+    "ghs:aluminium_ore",
+    "ghs:nickel_ore",
+    "ghs:silver_ore",
+    "ghs:zinc_ore",
+    "ghs:lead_ore",
+
+    "ghs:deepslate_tungsten_ore",
+    "ghs:deepslate_titanium_ore",
+    "ghs:deepslate_tin_ore",
+    "ghs:deepslate_aluminium_ore",
+    "ghs:deepslate_nickel_ore",
+    "ghs:deepslate_silver_ore",
+    "ghs:deepslate_zinc_ore",
+    "ghs:deepslate_lead_ore"
+  ]
+}
