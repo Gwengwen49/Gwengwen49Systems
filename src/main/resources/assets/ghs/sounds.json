@@ -1,0 +1,10 @@
+{
+  "epic_music": {
+    "sounds": [
+      {
+        "name": "mymod:music/epic_music",
+        "stream": true
+      }
+    ]
+  }
+}

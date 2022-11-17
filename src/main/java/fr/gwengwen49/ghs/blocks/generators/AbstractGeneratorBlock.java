@@ -1,8 +1,10 @@
 package fr.gwengwen49.ghs.blocks.generators;
 
 import fr.gwengwen49.ghs.blocks.generators.blockentity.AbstractGeneratorBlockEntity;
+import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.protocol.game.ServerboundSwingPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
