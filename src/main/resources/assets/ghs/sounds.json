@@ -1,8 +1,26 @@
 {
-  "epic_music": {
+  "moon_music_one": {
     "sounds": [
       {
-        "name": "mymod:music/epic_music",
+        "name": "ghs:music/moon_music_one",
+        "stream": true
+      }
+    ]
+  },
+
+  "moon_music_two": {
+    "sounds": [
+      {
+        "name": "ghs:music/moon_music_two",
+        "stream": true
+      }
+    ]
+  },
+
+  "moon_music_three": {
+    "sounds": [
+      {
+        "name": "ghs:music/moon_music_three",
         "stream": true
       }
     ]

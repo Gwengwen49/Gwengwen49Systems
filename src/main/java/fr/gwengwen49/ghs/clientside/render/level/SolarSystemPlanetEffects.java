@@ -17,8 +17,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.profiling.jfr.event.PacketReceivedEvent;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.FogType;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
@@ -143,11 +145,18 @@ public abstract class SolarSystemPlanetEffects extends DimensionSpecialEffects {
     public boolean renderSky(ClientLevel level, int ticks, float partialTick, PoseStack poseStack, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
 
         if (!isFoggy) {
+
                     RenderSystem.disableTexture();
                     Vec3 vec3 = Minecraft.getInstance().gameRenderer.getMainCamera().getPosition().multiply(0.0f, 0.0f, 0.0f);
                     float f = (float)vec3.x;
                     float f1 = (float)vec3.y;
                     float f2 = (float)vec3.z;
+                    int afloat = 50;
+                    if(new Random().nextInt(10) == 1){
+                        if(afloat <= 200){
+                            afloat++;
+                        }
+                    }
                     BufferBuilder bufferbuilder = Tesselator.getInstance().getBuilder();
                     RenderSystem.depthMask(false);
                     RenderSystem.setShaderColor(f, f1, f2, 1.0F);
@@ -177,14 +186,30 @@ public abstract class SolarSystemPlanetEffects extends DimensionSpecialEffects {
                     Matrix4f matrix4f1 = poseStack.last().pose();
                     float f12 = 30.0F;
                     RenderSystem.setShader(GameRenderer::getPositionTexShader);
-                    RenderSystem.setShaderTexture(0, new ResourceLocation("ghs","textures/environment/earth.png"));
+                    RenderSystem.setShaderTexture(0, new ResourceLocation("textures/environment/sun.png"));
                     bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
                     bufferbuilder.vertex(matrix4f1, -f12, 150.0f, -f12).uv(0.0F, 0.0F).endVertex();
                     bufferbuilder.vertex(matrix4f1, f12, 150.0F, -f12).uv(1.0F, 0.0F).endVertex();
                     bufferbuilder.vertex(matrix4f1, f12, 150.0F, f12).uv(1.0F, 1.0F).endVertex();
                     bufferbuilder.vertex(matrix4f1, -f12, 150.0F, f12).uv(0.0F, 1.0F).endVertex();
                     BufferUploader.drawWithShader(bufferbuilder.end());
-                        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
+                    RenderSystem.setShaderTexture(0, new ResourceLocation("ghs","textures/environment/earth.png"));
+                    bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+                    bufferbuilder.vertex(matrix4f1, -f12, -250.0f, f12).uv(0.0F, 0.0F).endVertex();
+                    bufferbuilder.vertex(matrix4f1, f12, -250.0f, f12).uv(1.0F, 0.0F).endVertex();
+                    bufferbuilder.vertex(matrix4f1, f12, -250.0f, -f12).uv(1.0F, 1.0F).endVertex();
+                    bufferbuilder.vertex(matrix4f1, -f12, -250.0f, -f12).uv(0.0F, 1.0F).endVertex();
+                    BufferUploader.drawWithShader(bufferbuilder.end());
+                    /** some tests here
+                    RenderSystem.setShaderTexture(0, new ResourceLocation("ghs","textures/environment/nebula_two.png"));
+                    bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+                    bufferbuilder.vertex(matrix4f1, -f12, -200.0f, f12).uv(0.0F, 0.0F).endVertex();
+                    bufferbuilder.vertex(matrix4f1, f12, -200.0f, f12).uv(1.0F, 0.0F).endVertex();
+                    bufferbuilder.vertex(matrix4f1, f12, -200.0f, -f12).uv(1.0F, 1.0F).endVertex();
+                    bufferbuilder.vertex(matrix4f1, -f12, -200.0f, -f12).uv(0.0F, 1.0F).endVertex();
+                    BufferUploader.drawWithShader(bufferbuilder.end());
+                    */
+            RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
                         starBuffer.bind();
                         starBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, GameRenderer.getPositionShader());
                         VertexBuffer.unbind();
@@ -232,5 +257,11 @@ public abstract class SolarSystemPlanetEffects extends DimensionSpecialEffects {
     @Override
     public boolean isFoggyAt(int p_108874_, int p_108875_) {
         return false;
+    }
+
+    @Nullable
+    @Override
+    public float[] getSunriseColor(float p_108872_, float p_108873_) {
+        return null;
     }
 }

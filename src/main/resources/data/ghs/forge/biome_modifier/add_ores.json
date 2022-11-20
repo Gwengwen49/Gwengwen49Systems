@@ -1,0 +1,15 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#ghs:is_moon",
+  "features": [
+    "ghs:tungsten_ore_placed",
+    "ghs:titanium_ore_placed",
+    "ghs:aluminium_ore_placed",
+    "ghs:nickel_ore_placed",
+    "ghs:lead_ore_placed",
+    "ghs:zinc_ore_placed",
+    "ghs:tin_ore_placed",
+    "ghs:silver_ore_placed"
+  ],
+  "step": "underground_ores"
+}
